@@ -7,8 +7,7 @@ public class Encryptonator {
         FileInputStream inputStreamWord = new FileInputStream("src/main/resources/Word.txt");
         FileReader fileReader = new FileReader("src/main/resources/Text.txt");
         BufferedReader TxtReader = new BufferedReader(fileReader);
-        FileWriter fileWriter = new FileWriter("src/main/resources/TextWithWord.txt");
-        BufferedWriter writerText = new BufferedWriter(fileWriter);
+
         StringBuilder text = new StringBuilder();
         String line = TxtReader.readLine();
         text.append(line);
@@ -35,7 +34,8 @@ public class Encryptonator {
         }
 
         for (int i = charsBits.length + 1; i < splitTxt.size(); i++) { text.append(" " + splitTxt.get(i)); }
-
+        FileWriter fileWriter = new FileWriter("src/main/resources/TextWithWord.txt");
+        BufferedWriter writerText = new BufferedWriter(fileWriter);
         writerText.write(text.toString());
         writerText.close();
     }
